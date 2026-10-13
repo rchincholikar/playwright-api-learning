@@ -1,12 +1,17 @@
 {
-    "compilerOptions":{
-        "target": "es2022",
-        "module": "node16",
-        "moduleResolution":"node16",
-        "strict": true,
-        "esModuleInterop": true,
-        "skipLibCheck": true,
-        "types": ["node"]
-    },
-    "include":["tests/**/*.ts"]
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "noEmit": true,
+    "types": ["node"]
+  },
+  "include": ["tests/**/*.ts", "playwright.config.ts"]
 }
