@@ -1,7 +1,8 @@
 import { test, expect } from '@playwright/test'
 import { CreateBookingResponseSchema } from '../schemas/booking.schema';
+import { ApiClient } from '../helpers/api-client';
 
-test('POST /booking - creates a booking successfully', async ({ request }) => {
+test('POST /booking - creates a booking successfully', async ({ request },testInfo) => {
   const requestBody = {
     firstname: 'ramesh',
     lastname: 'chincholikar',
@@ -14,7 +15,8 @@ test('POST /booking - creates a booking successfully', async ({ request }) => {
     additionalneeds: 'Breakfast',
   };
 
-  const response = await request.post('/booking', { data: requestBody });
+  const api = new ApiClient(request, testInfo);
+  const response = await api.post('/booking', { data: requestBody });
 
   expect(response.status()).toBe(200);
   expect(response.ok()).toBeTruthy();
